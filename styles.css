@@ -477,6 +477,29 @@ input:focus, select:focus, textarea:focus{
   transform: translateY(0);
 }
 
+/* === Marca de agua global (logo) === */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image: url("./unnamed.png"); /* o ./assets/unnamed.png */
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: min(520px, 70vw);
+  opacity:0.06;             /* controla qué tan sutil se ve */
+  pointer-events:none;      /* no bloquea clicks */
+  z-index:0;
+}
+
+/* Asegura que el contenido quede por encima */
+.header,
+main,
+.footer{
+  position:relative;
+  z-index:1;
+}
+
+
 /* Responsive */
 @media (max-width: 980px){
   .hero__inner{ grid-template-columns: 1fr; }
@@ -504,3 +527,4 @@ input:focus, select:focus, textarea:focus{
   }
   .nav__list.is-open{ display:flex; }
 }
+
