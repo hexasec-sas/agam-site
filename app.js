@@ -20,6 +20,46 @@
         toggle.setAttribute("aria-expanded", "false");
       }
     });
+
+  /* === Zoom individual en imágenes de la galería === */
+const zoomModal = document.getElementById("zoomModal");
+const zoomImg = document.getElementById("zoomImg");
+const zoomCaption = document.getElementById("zoomCaption");
+
+function openZoom(src, altText){
+  if(!zoomModal || !zoomImg) return;
+  zoomImg.src = src;
+  zoomImg.alt = altText || "Imagen ampliada";
+  if(zoomCaption) zoomCaption.textContent = altText || "";
+  zoomModal.classList.add("active");
+  zoomModal.setAttribute("aria-hidden","false");
+}
+
+function closeZoom(){
+  if(!zoomModal || !zoomImg) return;
+  zoomModal.classList.remove("active");
+  zoomModal.setAttribute("aria-hidden","true");
+  zoomImg.src = "";
+  zoomImg.alt = "";
+  if(zoomCaption) zoomCaption.textContent = "";
+}
+
+/* Click en cualquier imagen dentro de la grilla del modal principal */
+document.querySelectorAll("#galleryModal .galleryGrid img").forEach(img=>{
+  img.addEventListener("click", ()=> openZoom(img.src, img.alt));
+});
+
+/* Cerrar zoom: botón, click fuera, ESC */
+document.querySelector(".zoomClose")?.addEventListener("click", closeZoom);
+document.querySelector(".zoomOverlay")?.addEventListener("click", closeZoom);
+
+document.addEventListener("keydown",(e)=>{
+  if(e.key === "Escape"){
+    closeZoom();
+  }
+});
+
+    
   }
 
   // Animación reveal (IntersectionObserver = liviano y rápido)
@@ -138,5 +178,6 @@ document.querySelector(".galleryClose")?.addEventListener("click", closeGallery)
 
   
 })();
+
 
 
