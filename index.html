@@ -225,6 +225,13 @@
           <h2>Nuestros clientes</h2>
           <p class="sub">Confianza construida con resultados.</p>
         </div>
+<!-- bonton ver clientes-->
+        <div style="text-align:center;margin-top:24px;">
+  <button class="btn btn--ghost" onclick="openGallery()">
+    Ver clientes y proyectos
+  </button>
+</div>
+
 
         <!-- Aquí puedes reemplazar por tus logos reales -->
         <div class="logos reveal" aria-label="Logos de clientes">
@@ -347,9 +354,32 @@
     <span>WhatsApp</span>
   </a>
 
+  <!-- Modal flotante - Galería -->
+<div id="galleryModal" class="galleryModal" aria-hidden="true">
+  <div class="galleryOverlay"></div>
+
+  <div class="galleryContent">
+    <button class="galleryClose" aria-label="Cerrar galería">✕</button>
+
+    <h3>Clientes & Proyectos</h3>
+
+    <div class="galleryGrid">
+      <!-- IMÁGENES -->
+      <img src="./assets/clientes/Enel.jpg" alt="Proyecto ENEL">
+      <img src="./assets/clientes/Telefonica.png" alt="Proyecto Telefónica">
+      <img src="./assets/clientes/Dann.png" alt="Hoteles Dann">
+      <img src="./assets/clientes/Deltec.png" alt="Deltec">
+      <img src="./assets/clientes/Proalco.png" alt="Proalco">
+      <img src="./assets/clientes/Consalt.png" alt="Consalt International">
+    </div>
+  </div>
+</div>
+
+  
   <script src="app.js" defer></script>
 </body>
 </html>
+
 
 
 
