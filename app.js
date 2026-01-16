@@ -101,4 +101,38 @@
     const body = encodeURIComponent("Hola AGAM Ingeniería SAS,\n\nQuiero solicitar una cotización. Por favor contáctenme.\n\nGracias.");
     emailBtn.href = `mailto:proyectos@agamingenieria.com?subject=${subject}&body=${body}`;
   }
+
+  /* === Galería flotante === */
+function openGallery(){
+  const modal = document.getElementById("galleryModal");
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden","false");
+}
+
+function closeGallery(){
+  const modal = document.getElementById("galleryModal");
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden","true");
+}
+
+/* Cerrar al hacer click fuera */
+document.addEventListener("click", (e)=>{
+  const modal = document.getElementById("galleryModal");
+  if(e.target.classList.contains("galleryOverlay")){
+    closeGallery();
+  }
+});
+
+/* Cerrar con ESC */
+document.addEventListener("keydown",(e)=>{
+  if(e.key === "Escape"){
+    closeGallery();
+  }
+});
+
+/* Botón cerrar */
+document.querySelector(".galleryClose")?.addEventListener("click", closeGallery);
+
+  
 })();
+
