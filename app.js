@@ -115,6 +115,9 @@ function closeGallery(){
   modal.setAttribute("aria-hidden","true");
 }
 
+window.openGallery = openGallery;
+window.closeGallery = closeGallery;
+  
 /* Cerrar al hacer click fuera */
 document.addEventListener("click", (e)=>{
   const modal = document.getElementById("galleryModal");
@@ -135,4 +138,5 @@ document.querySelector(".galleryClose")?.addEventListener("click", closeGallery)
 
   
 })();
+
 
