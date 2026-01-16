@@ -653,12 +653,76 @@ input:focus, select:focus, textarea:focus{
   }
 }
 
+/* ============================= */
+/* ZOOM INDIVIDUAL (LIGHTBOX) */
+/* ============================= */
+.zoomModal{
+  position:fixed;
+  inset:0;
+  z-index:1000;   /* encima del modal de galería */
+  display:none;
+}
+.zoomModal.active{ display:block; }
+
+.zoomOverlay{
+  position:absolute;
+  inset:0;
+  background:rgba(11,18,32,.82);
+  backdrop-filter: blur(6px);
+}
+
+.zoomContent{
+  position:relative;
+  max-width:min(1100px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  margin: 12px auto;
+  padding: 12px;
+  border-radius: 18px;
+  background:#fff;
+  box-shadow: 0 30px 60px rgba(0,0,0,.35);
+  display:grid;
+  gap:10px;
+  animation: modalIn .25s ease;
+}
+
+#zoomImg{
+  width:100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 14px;
+  background:#fff;
+  border:1px solid rgba(15,23,42,.10);
+}
+
+.zoomCaption{
+  margin:0;
+  color:#334155;
+  font-weight:700;
+  text-align:center;
+}
+
+.zoomClose{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  border:none;
+  background:#0b1220;
+  color:#fff;
+  cursor:pointer;
+  font-size:18px;
+}
+
+
 /* Responsive */
 @media(max-width:768px){
   .galleryContent{
     margin:4vh 12px;
   }
 }
+
 
 
 
