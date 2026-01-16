@@ -375,10 +375,21 @@
   </div>
 </div>
 
-  
+ <!-- Zoom individual (Lightbox) -->
+<div id="zoomModal" class="zoomModal" aria-hidden="true">
+  <div class="zoomOverlay"></div>
+
+  <div class="zoomContent" role="dialog" aria-label="Vista ampliada">
+    <button class="zoomClose" type="button" aria-label="Cerrar zoom">✕</button>
+    <img id="zoomImg" src="" alt="">
+    <p id="zoomCaption" class="zoomCaption"></p>
+  </div>
+</div>
+ 
   <script src="app.js" defer></script>
 </body>
 </html>
+
 
 
 
